@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Поиск</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div style="text-align: center; margin-top: 100px">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Введите имя или фамилию"
+      />
+      <div id="results"></div>
+    </div>
+
+    <script>
+      $("#searchInput").on("keyup", function () {
+        let query = $(this).val();
+        if (query.length > 1) {
+          $.ajax({
+            url: "/search/",
+            data: {
+              q: query,
+            },
+            dataType: "json",
+            success: function (data) {
+              let suggestions = "";
+              for (let person of data) {
+                suggestions += `<div>${person.first_name} ${person.last_name}</div>`;
+              }
+              $("#results").html(suggestions);
+            },
+          });
+        } else {
+          $("#results").html("");
+        }
+      });
+    </script>
+  </body>
+</html>
