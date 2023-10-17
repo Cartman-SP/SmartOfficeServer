@@ -6,9 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Поиск</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      .search-result {
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-left: auto;
+        margin-right: auto;
+        width: 85%; /* или любое другое значение */
+      }
+
+      .search-result:hover {
+        background-color: #e9e9e9; /* цвет фона при наведении */
+      }
+
+      .name,
+      .surname {
+        margin-right: 5px; /* отступ между именем и фамилией */
+      }
+    </style>
   </head>
   <body>
-    <div style="text-align: center; margin-top: 100px">
+    <div
+      style="
+        text-align: center;
+        margin-top: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 15%;
+      "
+    >
       <input
         type="text"
         id="searchInput"
@@ -30,7 +59,7 @@
             success: function (data) {
               let suggestions = "";
               for (let person of data) {
-                suggestions += `<div>${person.first_name} ${person.last_name}</div>`;
+                suggestions += `<div class="search-result"><span class="name">${person.firstname}</span> <span class="surname">${person.secondname}</span></div>`;
               }
               $("#results").html(suggestions);
             },
