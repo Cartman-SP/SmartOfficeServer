@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HedgeCode/dev</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet"/>
+    <!-- Подключаем футуристический шрифт -->
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #111;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logo {
+        width: 180px; /* Уменьшил логотип */
+        margin-bottom: 10px;
+        opacity: 0;
+        animation: fadeInLogo 2s forwards;
+      }
+
+      .title {
+        font-family: "Orbitron", sans-serif; /* Футуристический шрифт */
+        color: #e5e5e5; /* Бело-серый цвет */
+        font-size: 40px; /* Увеличил размер шрифта */
+        opacity: 0;
+        animation: fadeInTitle 2s 2s forwards;
+      }
+
+      @keyframes fadeInLogo {
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInTitle {
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <img src="https://i.imgur.com/GNNEr1u.png" alt="Logo" class="logo" />
+      <div class="title">HedgeCode/dev</div>
+    </div>
+  </body>
+</html>
